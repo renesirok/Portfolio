@@ -1,0 +1,200 @@
+
+		*{
+			margin:0;
+			padding:0;
+		}
+		
+		#glavni{
+			margin:auto;
+			width:220mm;
+			height:99mm;
+		}
+		
+		input[type=radio] {
+			border:1px solid rgb(255,103,77);
+			padding: 0.5em;
+			-webkit-appearance: none;
+		}
+		
+		input[type=radio]:focus {
+			outline-color: black;
+		}
+		
+		#desni{
+			height:99mm;
+			width:150mm;
+			float:left;
+			background-color:rgb(255,181,17,0.2);
+			font-family: Myriad Pro;
+			font-size:7pt;
+			font-weight:semibold;
+			color:rgb(250,103,77);
+			border-left:none;
+			border:1px solid black;
+		}
+		
+		input[type=radio]:checked {
+			background-color:black;
+			background-size: 9px 9px;
+		}
+		
+		#levi{
+			margin:auto;
+			background-color:rgb(250,70,22,0.2);
+			color:rgb(250,70,22);
+			height:99mm;
+			width:60mm;
+			font-family: Myriad Pro;
+			float:left;
+			font-weight:semibold;
+			font-size:7pt;
+			border:1px solid black;
+			
+		}
+		
+		input[type=radio],input[type=checkbox] {
+			width:15px;
+			height: 15px;
+			margin-left:1mm;
+		}
+		
+		#zgornji{
+			background-color:rgb(250,70,22,0.2);
+			float: left;
+			
+		}
+		
+			#qr{
+				width:40mm;
+				height:39.5mm;
+				margin-top:5.5mm;
+				margin-left:3.5mm;
+				float:left;
+			}
+
+			#DesniZgornji{
+				float: left;
+				margin-top:5.5mm;
+				margin-right:4mm;
+				margin-left:3mm;
+			}
+			
+			#ZnesekEur{
+				margin-right:4mm;
+			}
+			
+			#eur{
+				float:left;
+				margin-top:12px;
+				color:black;
+				font-weight: bold;
+				margin-right:1mm;
+			}
+			
+			#znesek,#datum{
+				float:left;
+				margin-right:5mm;
+			}
+			
+			#QRslika{
+				border:1px solid rgb(255,103,77);
+				height:136px;
+				width:144px;
+			}
+			
+			#Polog{
+				margin-left:3mm;
+				margin-right:4mm;
+			}
+
+			#DesniSrednji{
+			background-color:rgb(250,70,22,0.2);
+			width:150mm;
+			float: left;
+			margin-right:4mm;
+			}
+		
+			#namenPlacila,#kodaNamena{
+				float:left;
+				margin-right:1.5mm;
+			}
+			
+			#kodaNamena{
+				margin-left:3.5mm;
+			}
+		
+			#DesniSpodnji{
+			float: left;
+			margin-right:4mm;
+			margin-left:3.5mm;
+			}
+			
+			#podpis-canvas{
+				width:37mm;
+				height:22mm;
+				background-color:white;
+				border:1px solid rgb(255,103,77);
+			}
+			
+			#podpis{
+				width:37mm;
+				height:23mm;
+				float:left;
+			}
+			
+			#ReferencaPlacika,#IBANplacnika,#rokPlacila,#refPrejemnika,#referencaPrejemnika,#Polog,#Dvig,#ImeUlicaKraj{
+				float:left;
+			}
+			
+			input{
+				background-image: url('ozadje.png');
+				background-size:57px;
+				border:1px solid rgb(255,103,77);
+			}
+			
+			#pod1,#pod2,#pod3,#pod4,#pod5,#pod6{
+				background-image:none;
+				
+			}
+			#pod1,#pod2,#pod4,#pod5{
+				border-bottom:none;
+			}
+			
+			#IBAN{
+				margin-left:3.5mm;
+				margin-right:4mm;
+				float:left;
+			}
+			
+			#zadnji{
+				font-family: Myriad Pro;
+				font-size:5pt;
+				text-align:center;
+				margin-top:96mm;
+			}
+			
+			textarea{
+				resize:none;
+				margin-left:4mm;
+				width:198px;
+				height:51px;
+				border:1px solid rgb(255,103,77);
+			}
+	
+			#imetext{
+				margin-top:6mm;
+				margin-left:4mm;
+				float:left;
+			}
+			
+			#UPNQRpotrdilo{
+				FONT-WEIGHT:BOLD;
+				color:black;
+				float:right;
+				margin-right:3.5mm;
+				margin-top:6mm;
+				margin-bottom:1.5mm;
+			}
+			
+		
+			

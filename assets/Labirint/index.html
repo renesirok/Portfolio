@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>		
+	<title>BUMBAM</title>
+
+	<meta charset="UTF-8" />
+
+
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	
+	<link rel="stylesheet" href="css/stil.css" type="text/css" media="all" />	
+
+	
+	<style>
+		
+		function DrawGift()
+		{
+			
+		}
+	
+	</style>
+	
+
+</head>
+<body>
+
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<div id="glava">
+		<h1>LABIRINT</h1>
+	</div>
+	
+	<div id="player">
+	
+	</div>
+
+
+	<div id="all">
+	
+	
+	
+		<div id="slika">
+			<img src="slike/maze.png"/>
+		</div>
+		
+	
+	
+	
+	
+	
+		<div id="maze">
+		<canvas	width="482px" height="482px" id="myCanvas"></canvas>
+	
+		<script> 
+		var tab1=[226,290,290,274,274,258,258,290,290,306,306,322,322,386,
+				  386,402,402,370,370,402,402,418,418,434,434,450,450,402,
+				  402,306,306,258,258,242,242,226,226,194,194,178,178,194,
+				  194,146,146,130,130,114,114,98,98,82,82,66,66,50,50,34,
+				  34,2,2,34,34,2,2,18,18,34,34,50,50,82,82,
+				  66,66,50,50,82,82,66,66,50,50,66,66,82,82,
+				  98,98,114,114,146,146,178,178,210,210,162,162,146,146,
+				  162,162,178,178,242,242,258,258,242,242];
+		var tab2=[2,2,18,18,50,50,66,66,98,98,82,82,98,98,
+				  66,66,114,114,130,130,146,146,194,194,178,178,210,210,
+				  226,226,146,146,162,162,130,130,114,114,98,98,82,82,
+				  18,18,34,34,2,2,18,18,2,2,18,18,2,2,34,34,
+				  50,50,82,82,114,114,146,146,130,130,162,162,178,178,194,
+				  194,210,210,226,226,258,258,290,290,306,306,322,322,306,
+				  306,290,290,306,306,338,338,354,354,370,370,386,386,402,
+				  402,418,418,434,434,402,402,450,450,466];
+		
+		
+		var i=0;
+		
+		var x=226;
+		var y=0;
+		
+		var xtab=tab1[i];
+		var ytab=tab2[i];
+		var xp=xtab-x;
+		var yp=ytab-y;
+		
+		const img=new Image();
+		img.src='slike/ball2.png';
+		
+		var k=0;
+		
+		var neki;
+		
+		function drawIt() 
+		{
+		
+			xtab=tab1[i];
+			ytab=tab2[i];
+			xp=xtab-x;
+			yp=ytab-y;
+			
+			
+			var canvas = document.getElementById('myCanvas'); 
+			var c = canvas.getContext('2d');
+			
+			c.clearRect(0,0,canvas.width,canvas.height);
+			c.drawImage(img,x,y);
+			c.stroke();
+			
+			if(x!=xtab||y!=ytab)
+			{
+				if(xp>0)
+				{
+					x+=1;
+				}
+				else if(xp==0)
+				{}
+				else
+				{
+					x-=1;
+				}
+				if(yp>0)
+				{
+					y+=1;
+				}
+				else if(yp==0)
+				{}
+				else
+				{
+					y-=1;
+				}
+			}
+			else
+			{
+				i+=1;
+			}
+			
+			if(i>=tab1.length)
+			{
+				x=tab1[0];
+				y=tab2[0];
+				i=0;
+				k++;
+				console.log("HELLO WORLD");
+				
+				if(k==1)
+				{
+					console.log("HELLO WORLD");
+					document.getElementById("ball").style.visibility="visible";
+					clearInterval(neki);
+					swal("Goal!!!!!");
+				}
+
+					
+				}
+			}
+		
+		neki=setInterval(drawIt, 0.5); 
+		</script>
+	
+		</div>
+		
+	</div>
+	
+	<div id="goal">
+		
+		<div id="ball"></div>
+		
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,181 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+
+	<title>UPN</title>
+	
+</head>
+<body>
+	
+	<div id ="glavni">
+		<form>
+		<div id ="levi">
+			<div id="prvi">
+				<div id="ime">
+					<div id="imetext">Ime plačnika</div>
+					<div id="UPNQRpotrdilo">UPN QR - potrdilo</div><br>
+					<div id="ImePlacnika"><textarea name="ImePlacnika"></textarea></div>
+				</div>
+			</div>
+			
+			<div id="drugi">
+					<p style="margin-left:4mm;">Namen in rok plačila</p><textarea name="namen"></textarea>
+			</div>
+		
+			<div id="tretji">
+				<div id="eur" style="margin-left:8mm; margin-right:3mm; float:left;">EUR</div>
+				<div id="znesekPot"><p>Znesek</p><input type="number" name="potrdiloZnesek" style="background-image:none; width:151px;"></input></div>
+			</div>
+			
+			<div id="drugi">
+					<p style="margin-left:4mm;">IBAN in referenca prejemnika</p><textarea name="IBAN"></textarea>
+			</div>
+			
+			<div id="drugi">
+					<p style="margin-left:4mm;">Ime prejemnika</p><textarea name="ImePrejemnika"></textarea>
+					<div id="VpisPonudnika">Prostor za vpise ponudnika plačilnih storitev</div>
+			</div>
+
+			
+					
+		</div>
+		
+		<div id ="desni">
+		
+			<div id="zgornji">
+				
+			
+				<div id="qr"><p>Koda QR</p>
+					<img src="qr.png" id="QRslika" alt="Koda QR" width="120" height="120"></img>
+				</div>
+			
+				<div id="DesniZgornji">
+					<div id="IBANplacnika" >
+						<p>IBAN plačnika</p><input type="text" style="width:269px; height:18px"></input>
+					</div>
+					<div>
+						<div id="Polog">
+							<p>Polog</p>
+							<input type="radio" id="polog" name="radio"> 
+						</div>
+							
+						<div id="Dvig">
+							<p>Dvig</p><input type="radio" id="dvig" name="radio">
+						</div>
+					</div>
+						
+					<div id ="ReferencaPlacika">
+						<p>Referenca plačnika</p>
+						<input type="text" id="refplac" style="width:57px; height:18px; margin-right:1mm;"></input>
+						<input type="text" id="refplac2" style="width:312px; height:18px"></input>
+					</div>
+					
+					<div id="PodPlacnika" colspan="3">
+						<p>Ime,ulica in kraj plačnika</p>
+						<input type="text" id="pod1" style="width:376px; height:18px;"></input><br>
+						<input type="text" id="pod2" style="width:376px; height:18px;"></input><br>
+						<input type="text" id="pod3" style="width:376px; height:18px;"></input>
+					</div>
+					
+					<div id="ZnesekEur">
+						<div id="eur">EUR </div>
+						<div id="znesek"><p>Znesek</p><input type="number" name="znesek" style="width:156px; height:18px;"></input></div>
+						<div id="datum"><p>Datum plalčila</p><input type="text" name="datumplacila"  style="width:113px; height:18px;"></input></div>
+						<div id="nujno"><p>Nujno</p><input type="checkbox" name="nunjo"></input></div>
+					</div>
+				</div>
+			</div>
+			
+			<div id ="DesniSrednji">
+				<div id="kodaNamena"><p>Koda namena</p><input type="text" id="kodaNam" name="kodaNamena" style="width:57px; height:18px;"></input></div>
+				<div id="namenPlacila"><p>Namen plačila</p><input type="text" id="namenPlac" name="namenPlacila" style="width:354px; height:18px;"></input></div>	
+				<div id="rokPlacila"><p>Rok plačila</p><input type="text" id="rokPlac" name="rokPlacila" style="width:112px; height:18px;"></input></div>
+			</div>
+			
+			<div id="DesniSrednji2">
+				<div id="IBAN"><p>IBAN prejemnika</p><input type="text" id="IBANprejemnika" name="IBANp" style="width:483px; height:18px;"></input></div>
+			</div>
+			
+			<div id="DesniSpodnji">
+				<div id="referencaPrejemnika" style=" width:390px">
+					<div id="refPrejemnika"><p>Referenca prejemnika</p><input type="text"  name="referPrejemnika" style="width:57px; height:18px;"></input>
+					<input type="text" name="referPrejemnika2" style="width:312px; height:18px;"></input>
+					</div>
+					
+					<div id ="ImeUlicaKraj">
+						<p>Ime,ulica in kraj plačnika</p>
+						<input type="text" id="pod4" style="width:372px; height:18px;"></input><br>
+						<input type="text" id="pod5" style="width:372px; height:18px;"></input><br>
+						<input type="text" id="pod6" style="width:372px; height:18px;"></input>
+					</div>
+				</div>
+				
+				
+					<div id="podpis"><br>
+						<canvas id="podpis-canvas"></canvas>
+						<script>
+			var canvas = document.getElementById("podpis-canvas");
+			var context = canvas.getContext("2d");
+			
+			canvas.width = 143;
+			canvas.height = 86;
+
+			var points = [];
+			var last = 0;
+			var color = "#000000";
+			var size = 2;
+
+			canvas.onmousemove = function(e) {
+			  if (e.buttons == 1) {
+				var offsets = canvas.getBoundingClientRect();
+				var zgoraj = offsets.top;
+				var levo = offsets.left;
+				addClick(e.pageX - levo, e.pageY - zgoraj, true);
+				redraw();
+			  }
+			}
+
+			canvas.onmousedown = function(e) {
+				var offsets = canvas.getBoundingClientRect();
+				var zgoraj = offsets.top;
+				var levo = offsets.left;
+			  addClick(e.pageX - levo, e.pageY - zgoraj, false);
+			  redraw();
+			}
+
+			function addClick(x, y, dragging) {
+			  points.push({x: x, y: y, dragging: dragging });
+			}
+
+			context.lineJoin = "round";
+
+			function redraw() {
+			  context.strokeStyle = color;
+			  context.lineWidth = size;
+			  for (var i = last; i < points.length; i++) {
+				context.beginPath();
+				if (points[i].dragging && i)
+				  context.moveTo(points[i - 1].x, points[i - 1].y);
+				else
+				  context.moveTo(points[i].x, points[i].y);
+				context.lineTo(points[i].x, points[i].y);
+				
+				context.closePath();
+				context.stroke();
+			  }
+			  
+			  last = points.length;
+			}
+		</script>
+					</div>
+				
+			</div>
+			
+				<div id="zadnji">Prostor za vpise ponudnika plačilnih storitev</div>
+				
+			
+		</div>
+		</form>
+	</div>
+</body>
+</html>																																					
